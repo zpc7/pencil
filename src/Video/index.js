@@ -1,7 +1,5 @@
 import React from 'react'
 
-import PropTypes from 'prop-types'
-
 import classname from 'classnames'
 
 import axios from 'axios'
@@ -73,8 +71,12 @@ class VideoBox extends React.Component {
             [`${prefix}-playBase`]: true,
             [`${prefix}-playBase_hover`]: this.state.showTitle
         })
+        const wordCls = classname({
+            [`${prefix}-word`]: true,
+            [`${prefix}-word_hover`]: this.state.showTitle
+        })
         return (
-            <div className={`${prefix}-word`}>
+            <div className={wordCls}>
                 <p className={`${prefix}-time`}>{videoTime}</p>
                 <div className={`${prefix}-play`} onClick={() => this.props.handleClick(albumPhoto)}>
                     <div className={playCls}>
@@ -99,57 +101,33 @@ class VideoBox extends React.Component {
     }
 }
 
-export default class Videos extends React.Component {
+class Videos extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             isOpen: false,
             chooseId: 0,
             videoUrl:'',
-            videos: [
-                {
-                    id: 1,
-                    type:2,
-                    videoTitle: 'Overwatch - First try on Bastion',
-                    videoTime: '12:30',
-                    albumPhoto: 'http://flv2.bn.netease.com/videolib3/1604/28/fVobI0704/SD/fVobI0704-mobile.mp4'
-                },
-                {
-                    id: 1,
-                    type:2,
-                    videoTitle: 'Overwatch - First try on Bastion',
-                    videoTime: '12:30',
-                    albumPhoto: 'http://flv2.bn.netease.com/videolib3/1604/28/fVobI0704/SD/fVobI0704-mobile.mp4'
-                },
-                {
-                    id: 1,
-                    type:2,
-                    videoTitle: 'Overwatch - First try on Bastion',
-                    videoTime: '12:30',
-                    albumPhoto: 'http://flv2.bn.netease.com/videolib3/1604/28/fVobI0704/SD/fVobI0704-mobile.mp4'
-                }
-            ]
+            videos: []
         }
     }
     componentDidMount() {
-        // axios
-        //     .get("/services/profile/album/hotFeedsVideo")
-        //     .then(res => {
-        //         if (res.status === 200) {
-        //             const {code, data} = res.data
-        //             console.log(code)
-        //             console.log(data)
-        //             if (code == 0) {
-        //                 this.setState({videos: data})
-        //             }
-        //         }
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
+        const userId = this.props.userId || 1
+        axios
+            .get(`/services/profile/album/videosTop3/${userId}`)
+            .then(res => {
+                if (res.status === 200) {
+                    const {code, data} = res.data
+                    if (code == 0) {
+                        this.setState({videos: data})
+                    }
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
     handleClick (url){
-        console.log(url)
         this.setState({videoUrl: url, isOpen:true  })
     }
     closeModal(){
@@ -176,3 +154,5 @@ export default class Videos extends React.Component {
         )
     }
 }
+
+export default Videos

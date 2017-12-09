@@ -1,0 +1,27 @@
+.photos-box {
+    width: 217px; // height: 440px;
+    background-color: #000;
+    border-top: 2px solid #FFC019;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 0 10px 10px 10px;
+    .title {
+        font-size: 20px;
+        color: #fff;
+    }
+    .container{
+        display: flex;
+        flex-direction: rows;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        img{
+            cursor: pointer;
+            width: 91px;
+            height: 91px;
+            display: flex;
+            margin: 5px 0;
+        }
+    }
+}

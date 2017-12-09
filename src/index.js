@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Video';
 import registerServiceWorker from './registerServiceWorker';
+
+
+
+
+import Videos from './Video';
+import Photos from './Photos'
+
 
 function Main() {
     return (
         <div>
-            <App/>
+            <Videos/>
+            <br />
+            <Photos />
         </div>
     )
 }

@@ -27,26 +27,34 @@ $prefix: video;
     }
     &-word {
         color: #fff;
-        background-color: rgba(0, 0, 0, .4);
+        background-color: rgba(0, 0, 0, .6);
         position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 10px 0;
         cursor: pointer;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
+        transition: top bottom left right 1.5s;
         &>p {
             margin-top: 0;
             margin-bottom: 0;
         }
     }
+    &-word_hover{
+        top: 8px;
+        bottom: 8px;
+        left: 2px;
+        right: 2px;
+        transition: top bottom left right 1.5s;
+    }
     &-time {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+        padding-top: 10px;
         margin-right: 20px;
         font-size: 12px;
     }
@@ -62,6 +70,7 @@ $prefix: video;
         flex-direction: row;
         opacity: 0;
         align-items: center;
+        padding-bottom: 10px;
         font-size: 14px;
         transition: opacity 1.5s;
     }
