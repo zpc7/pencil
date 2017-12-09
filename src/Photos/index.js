@@ -6,7 +6,6 @@ import Modal from 'react-modal'
 
 import './index.scss'
 
-import demoPhoto from './demo.png'
 
 const customStyles = {
     overlay: {
@@ -36,7 +35,7 @@ class Videos extends React.Component {
         this.state = {
             isOpen: false,
             imgUrl:'',
-            photos: new Array(6).fill(demoPhoto)
+            photos: []
         }
     }
     componentDidMount() {
@@ -67,7 +66,6 @@ class Videos extends React.Component {
             <div className='photos-box'>
                 <h3 className='title'>Photos</h3>
                 <div className='container'>
-                {/* TODO:  photo 取值接口通之后 应 取 photo.albumPhoto */}
                     {photos.map((photo,index) => <img onClick={ () => this.handleClick(photo.albumPhoto)} src={photo.albumPhoto} key={index} alt='' />)}
                 </div>
                 <Modal
