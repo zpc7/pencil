@@ -5,8 +5,11 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 
-import Videos from './Video';
-import Photos from './Photos'
+// import Videos from './Video';
+// import Photos from './Photos';
+
+import Videos from 'qianbi-components/Videos'
+import Photos from 'qianbi-components/Photos'
 
 
 function Main() {

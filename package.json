@@ -33,6 +33,7 @@
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
+    "qianbi-components": "git+https://github.com/cd-xulei/qianbi-components.git",
     "raf": "3.4.0",
     "react": "^16.2.0",
     "react-dev-utils": "^4.2.1",
