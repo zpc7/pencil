@@ -1,0 +1,93 @@
+.videos-box {
+    width: 217px; // height: 440px;
+    background-color: #000;
+    border-top: 2px solid #FFC019;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 0 10px 10px 10px;
+    .title {
+        font-size: 20px;
+        color: #fff;
+    }
+}
+
+$prefix: video;
+.#{$prefix} {
+    &-box {
+        // width: 207px;
+        position: relative;
+        height: 120px;
+        margin: 8px auto;
+        display: flex;
+        &>video,
+        &>img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    &-word {
+        color: #fff;
+        background-color: rgba(0, 0, 0, .4);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0;
+        cursor: pointer;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        &>p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    &-time {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: 20px;
+        font-size: 12px;
+    }
+    &-play {
+        display: flex;
+        flex-direction: rows;
+        justify-content: center;
+        align-items: center;
+    }
+    &-title {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        opacity: 0;
+        align-items: center;
+        font-size: 14px;
+        transition: opacity 1.5s;
+    }
+    &-title_hover {
+        opacity: 1;
+        transition: opacity 1.5s;
+    }
+    &-playBase {
+        height: 55px;
+        width: 55px;
+        position: relative;
+        display: flex;
+        flex-direction: rows;
+        justify-content: center;
+        align-items: center;
+        background-size: 0 0;
+        background-image: url('./playBase.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-size 1s;
+        .playIcon {
+            opacity: 1;
+        }
+    }
+    &-playBase_hover {
+        background-size: 55px 55px;
+        transition: background-size 1s;
+    }
+}
