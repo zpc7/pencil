@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 
-
-
 // import Videos from './Video';
 // import Photos from './Photos';
 
